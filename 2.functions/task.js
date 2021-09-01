@@ -23,57 +23,27 @@ function getArrayParams(arr) {
 
 // Задание 2
 function worker(arr) {
-  let sum = 0;
-
-  for (let i = 0; i < arr.length; i++){
-    sum += arr[i];
-  }
-
+  let sum = arr.reduce((acum, value) => acum + value);
   return sum;
 }
 
 function makeWork(arrOfArr, func) {
   let max;
 
-  if (func === worker) {
-    max = worker(arrOfArr[0]);
+  max = func(arrOfArr[0]);
 
-    for (let i = 0; i < arrOfArr.length; i++) {
-      if (max < worker(arrOfArr[i])) {
-        max = worker(arrOfArr[i]);
-      }
-    }
-  } else {
-    max = worker2(arrOfArr[0]);
-
-    for (let i = 0; i < arrOfArr.length; i++) {
-      if (max < worker2(arrOfArr[i])) {
-        max = worker2(arrOfArr[i]);
-      }
+  for (let i = 0; i < arrOfArr.length; i++) {
+    if (max < func(arrOfArr[i])) {
+      max = func(arrOfArr[i]);
     }
   }
-
+  
   return max;
 }
 
 // Задание 3
 function worker2(arr) {
-  let max = Math.abs(arr[0]);
-  let min = Math.abs(arr[0]);
-  let diff;
-
-  for (let i = 0; i < arr.length; i++) {
-    if (max < Math.abs(arr[i])) {
-      max = Math.abs(arr[i]);
-    }
-    if (min > Math.abs(arr[i])) {
-      min = Math.abs(arr[i]);
-    }
-  }
-  
-  diff = max - min;
-
-  return diff;
+  return Math.max(...arr) - Math.min(...arr);
 }
 
 function mincer(arrOfArr, func) {
