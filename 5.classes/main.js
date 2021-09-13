@@ -1,5 +1,6 @@
 const sherlock = new PrintEditionItem("Полное собрание повестей и рассказов о Шерлоке Холмсе в одном томе", 2019, 1008);
 const picknick = new FantasticBook("Аркадий и Борис Стругацкие", "Пикник на обочине", 1972, 168);
+const student = new Student('Олег', 'алгебра')
 
 console.log(sherlock.releaseDate); //2019
 console.log(sherlock.state); //100
@@ -18,7 +19,6 @@ library.addBook(new DetectiveBook("Артур Конан Дойл", "Полно�
 library.addBook(new FantasticBook("Аркадий и Борис Стругацкие", "Пикник на обочине", 1972, 168));
 library.addBook(new NovelBook("Герберт Уэллс", "Машина времени", 1895, 138));
 library.addBook(new Magazine("Мурзилка", 1924, 60));
-
 console.log(library.findBookBy("name", "Властелин колец")); //null
 console.log(library.findBookBy("releaseDate", 1924).name); //"Мурзилка"
 
