@@ -63,18 +63,18 @@ class Library {
     }
 
     findBookBy(type, value) {
-        let result;
         for (let book of this.books) {
-            (book[type] === value)? result = book : result = null;
+            if (book[type] === value) {
+                return book;
+            } 
         }
-        return result;
+        return null;
     }
 
     giveBookByName(bookName) {
-        let name;
-        for (let book of this.books) {
-            if(book.name === bookName) {
-                return name = this.books.pop(book);
+        for (let i = 0; i < this.books.length; i++) {
+            if (this.books[i].name === bookName) {
+                return this.books.splice(i, 1)[0];
             }
         }
         return null;
